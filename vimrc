@@ -27,6 +27,9 @@ Plugin 'morhetz/gruvbox'
 " enhanced C syntax highlighting
 Plugin 'NLKNguyen/c-syntax.vim'
 
+" detect indent (tabs/spaces)
+Plugin 'tpope/vim-sleuth'
+
 "Plugin 'Valloric/ListToggle'
 "Plugin 'Raimondi/delimitMate'    " autocomplete parenthesis and brackets
 "Plugin 'derekwyatt/vim-fswitch'  " easily switch between header/source files
@@ -102,21 +105,21 @@ set number                     " show line numbers
 " FUNCTIONAL SETTINGS
 " -----------------------------------------------------------------------------
 
-set autoindent          " on new lines, match indent of previous line
-set copyindent          " copy the previous indentation on autoindenting
+"set autoindent          " on new lines, match indent of previous line
+"set copyindent          " copy the previous indentation on autoindenting
 set cindent             " smart indenting for c-like code
-set cino=b1,g0,N-s,t0,(0,W4  " see :h cinoptions-values
-set smarttab            " smart tab handling for indenting
+"set cino=b1,g0,N-s,t0,(0,W4  " see :h cinoptions-values
+"set smarttab            " smart tab handling for indenting
 
 set magic               " change the way backslashes are used in search patterns
 set bs=indent,eol,start " Allow backspacing over everything in insert mode
 set nobackup            " no backup~ files.
 
-set tabstop=2           " number of spaces a tab counts for
-set shiftwidth=2        " spaces for autoindents
-set softtabstop=2
-set shiftround          " makes indenting a multiple of shiftwidth
-set expandtab           " turn a tab into spaces
+"set tabstop=4           " number of spaces a tab counts for
+"set shiftwidth=2        " spaces for autoindents
+"set softtabstop=4
+"set shiftround          " makes indenting a multiple of shiftwidth
+"set expandtab           " turn a tab into spaces
 set laststatus=2        " the statusline is now always shown
 set noshowmode          " don't show the mode ("-- INSERT --") at the bottom
 
