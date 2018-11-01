@@ -1,0 +1,199 @@
+set nocompatible              " be iMproved, required for VundleVim
+filetype off                  " required for VundleVim
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'kergoth/vim-bitbake'     " bitbake syntax
+Plugin 'kien/ctrlp.vim'          " easily open new files
+Plugin 'bling/vim-airline'       " pretty statusline
+Plugin 'vim-airline/vim-airline-themes' " themes for airline
+Plugin 'Matt-Deacalion/vim-systemd-syntax' " systemd syntax
+Plugin 'sankhesh/vim-do'         " run shell commands asynchronously
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'tenfyzhong/CompleteParameter.vim'
+Plugin 'vim-scripts/cscope_macros.vim'
+
+" markdown support
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
+"Plugin 'rafi/awesome-vim-colorschemes'
+"Plugin 'NLKNguyen/papercolor-theme'
+
+Plugin 'morhetz/gruvbox'
+
+" enhanced C syntax highlighting
+Plugin 'NLKNguyen/c-syntax.vim'
+
+"Plugin 'Valloric/ListToggle'
+"Plugin 'Raimondi/delimitMate'    " autocomplete parenthesis and brackets
+"Plugin 'derekwyatt/vim-fswitch'  " easily switch between header/source files
+"Plugin 'majutsushi/tagbar'       " tagbar
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+":set shiftwidth=4
+":autocmd FileType c,cpp,h,hpp,tex,txt,py :set expandtab tw=120 tabstop=4 sw=4
+":autocmd FileType sh :set expandtab tw=120 tabstop=2 sw=2
+":autocmd FileType xml :set expandtab tw=120 tabstop=2 sw=2
+":autocmd FileType c,cpp,h,hpp :set cindent tw=120 tabstop=4 sw=4
+
+":autocmd Bufenter,Bufnewfile *.enk :set ft=enk autoindent tabstop=2 sw=2 expandtab
+":autocmd Bufenter *.api :set expandtab tw=120 tabstop=2 sw=2 ft=c.doxygen
+":autocmd Bufenter *.qml :set expandtab tw=120 tabstop=2 sw=2 ft=qml
+
+"autocmd BufEnter,BufRead,BufNewFile * :if getline(1) =~ '^.*startuml.*$'|  setfiletype plantuml | endif
+"autocmd BufEnter,BufRead,BufNewFile *.pu,*.uml,*.plantuml set filetype=plantuml
+
+":autocmd BufEnter,BufNewFile,BufRead *.py :set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=120 smarttab expandtab nosmartindent
+
+
+" -----------------------------------------------------------------------------
+" DISPLAY SETTINGS
+" -----------------------------------------------------------------------------
+
+"set background=dark
+"set t_Co=256           " help vim recognize the terminal as 256-color
+
+"colorscheme desert
+
+" PaperColor theme
+"set background=dark
+"colorscheme PaperColor
+"let g:airline_theme='papercolor'
+
+" monokai theme
+colorscheme monokai
+let g:airline_theme='onedark'
+"
+"colorscheme gruvbox
+
+" change the way search results are highlighted
+hi Search ctermbg=LightYellow
+hi Search ctermfg=Red
+
+" highlight extra whitespace in red
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+
+set scrolloff=2         " 2 lines above/below cursor when scrolling
+set showmatch           " show matching bracket (briefly jump)
+set matchtime=2         " reduces matching paren blink time from the 5[00]ms def
+set showmode            " show mode in status bar (insert/replace/...)
+set showcmd             " show typed command in status bar
+set ruler               " show cursor position in status bar
+set title               " show file in titlebar
+"set undofile            " stores undo state even when files are closed (in undodir)
+set cursorline          " highlights the current line
+"set cursorcolumn        " highlights the current column
+set winaltkeys=no       " turns of the Alt key bindings to the gui menu
+
+set hlsearch                   " highlight search
+set ignorecase                 " be case insensitive when searching
+set smartcase                  " be case sensitive when input has a capital letter
+set incsearch                  " show matches while typing
+
+set number                     " show line numbers
+
+" -----------------------------------------------------------------------------
+" FUNCTIONAL SETTINGS
+" -----------------------------------------------------------------------------
+
+set autoindent          " on new lines, match indent of previous line
+set copyindent          " copy the previous indentation on autoindenting
+set cindent             " smart indenting for c-like code
+set cino=b1,g0,N-s,t0,(0,W4  " see :h cinoptions-values
+set smarttab            " smart tab handling for indenting
+
+set magic               " change the way backslashes are used in search patterns
+set bs=indent,eol,start " Allow backspacing over everything in insert mode
+set nobackup            " no backup~ files.
+
+set tabstop=2           " number of spaces a tab counts for
+set shiftwidth=2        " spaces for autoindents
+set softtabstop=2
+set shiftround          " makes indenting a multiple of shiftwidth
+set expandtab           " turn a tab into spaces
+set laststatus=2        " the statusline is now always shown
+set noshowmode          " don't show the mode ("-- INSERT --") at the bottom
+
+set history=1000        " remember more commands and search history
+set undolevels=1000     " use many levels of undo
+
+set mouse=a             " enables the mouse in all modes
+set mousemodel=popup_setpos " Right-click on selection should bring up a menu
+
+set noswapfile          " disables the creation of .swp files
+
+set hidden              " allows to swich between buffers even when the current one is modified
+
+" turns off all error bells, visual or otherwise
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
+"show file/commands in status line when <TAB>
+"set wildmenu
+"set wildmode=longest,list
+"let treeExplDirSort = 1
+
+
+"-------------------------------------------------
+"word movement
+map <C-LEFT>  b
+map <C-RIGHT> w
+map <S-LEFT>  B
+map <S-RIGHT> W
+
+"set pastetoggle=<F3>
+
+" -----------------------------------------------------------------------------
+" CtrlP
+" -----------------------------------------------------------------------------
+let g:ctrlp_max_files = 100000
+let g:ctrlp_clear_cache_on_exit = 0 " preserve the cache between sessions
+let g:ctrlp_regexp = 1              " use filename search mode instead of regexp
+let g:ctrlp_by_filename = 1
+let g:ctrlp_working_path_mode = 'a' " use current directory as the root of the search
+
+" -----------------------------------------------------------------------------
+" vim-airline
+" -----------------------------------------------------------------------------
+let g:airline#extensions#tabline#enabled = 1
+
+
+" -----------------------------------------------------------------------------
+" custom mappings
+" -----------------------------------------------------------------------------
+"nnoremap <leader>jd :YcmCompleter GoTo<CR> " YCM GoTo
+"nnoremap <c-PageDown> :bn<CR>              " show next buffer
+"nnoremap <c-PageUp> :bp<CR>                " show prev buffer
+"nmap <F8> :TagbarToggle<CR>                " show tagbar
+
+"nmap <F7> :Do _run_do_compile_and_deploy.sh<CR>       " Yocto - run.do_compile + deploy_nfs.sh
+nmap <F8> :Do _run_do_compile.sh<CR>                  " Yocto - run.do_compile
+
+"nmap <F11> :bp<CR>
+nmap <F12> :bn<CR>
+
+" complete parameter!
+inoremap <silent><expr> ( complete_parameter#pre_complete("()")
+smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
+smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+"let g:complete_parameter_log_level = 1
+"
+let g:ycm_server_python_interpreter = '/usr/bin/python'
+
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
+
+" cscope keyboard mappings
+" reference: https://github.com/vim-scripts/cscope_macros.vim/blob/master/plugin/cscope_macros.vim#L52
+" ctrl+\ s -> find symbol
+" ctrl+\ g -> find global definition(s)
+" ctrl+\ c -> find callers
+" ctrl+space ...            -> open in horizontal window split
+" ctrl+space ctrl+space ... -> open in vertical window split
