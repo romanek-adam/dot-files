@@ -30,6 +30,11 @@ Plugin 'NLKNguyen/c-syntax.vim'
 " detect indent (tabs/spaces)
 Plugin 'tpope/vim-sleuth'
 
+" rtags - C/C++ indexer
+"Plugin 'lyuts/vim-rtags'
+" use the following fork due to https://github.com/lyuts/vim-rtags/issues/76
+Plugin 'therivenman/vim-rtags'
+
 "Plugin 'Valloric/ListToggle'
 "Plugin 'Raimondi/delimitMate'    " autocomplete parenthesis and brackets
 "Plugin 'derekwyatt/vim-fswitch'  " easily switch between header/source files
@@ -200,3 +205,6 @@ nnoremap <leader>jd :YcmCompleter GoTo<CR>
 " ctrl+\ c -> find callers
 " ctrl+space ...            -> open in horizontal window split
 " ctrl+space ctrl+space ... -> open in vertical window split
+"
+
+let g:rtagsRcCmd = '/home/adam/tools/rtags/latest/build/bin/rc'
