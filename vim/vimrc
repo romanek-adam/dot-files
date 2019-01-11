@@ -178,8 +178,8 @@ let g:airline#extensions#tabline#enabled = 1
 " custom mappings
 " -----------------------------------------------------------------------------
 "nnoremap <leader>jd :YcmCompleter GoTo<CR> " YCM GoTo
-"nnoremap <c-PageDown> :bn<CR>              " show next buffer
-"nnoremap <c-PageUp> :bp<CR>                " show prev buffer
+nnoremap <c-PageDown> :bn<CR>              " show next buffer
+nnoremap <c-PageUp> :bp<CR>                " show prev buffer
 "nmap <F8> :TagbarToggle<CR>                " show tagbar
 
 "nmap <F7> :Do _run_do_compile_and_deploy.sh<CR>       " Yocto - run.do_compile + deploy_nfs.sh
