@@ -41,6 +41,7 @@ Plugin 'therivenman/vim-rtags'
 "Plugin 'majutsushi/tagbar'       " tagbar
 
 Plugin 'yegappan/grep'
+Plugin 'Yggdroot/indentLine'      " indent lines (alighment hint)
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -210,3 +211,6 @@ nnoremap <leader>jd :YcmCompleter GoTo<CR>
 "
 
 let g:rtagsRcCmd = '/home/adam/tools/rtags/latest/build/bin/rc'
+
+" set the indent line color to dark grey
+let g:indentLine_color_term = 237
