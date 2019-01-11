@@ -10,7 +10,7 @@ esac
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-export HISTCONTROL=ignoredups:erasedups
+export HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -20,7 +20,7 @@ HISTSIZE=100000
 HISTFILESIZE=20000
 
 # After each command, append to the history file and reread it
-export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -142,4 +142,4 @@ if [ -d $FZF_GIT_REPO ]; then
   . $FZF_GIT_REPO/shell/key-bindings.bash
 fi
 
-. bin/shell/fcd
+. ~/bin/shell/fcd
