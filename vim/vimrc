@@ -40,6 +40,8 @@ Plugin 'therivenman/vim-rtags'
 "Plugin 'derekwyatt/vim-fswitch'  " easily switch between header/source files
 "Plugin 'majutsushi/tagbar'       " tagbar
 
+Plugin 'yegappan/grep'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
